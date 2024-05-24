@@ -1,4 +1,4 @@
-article, #mountainImg, #mountainName, #landingPage, #mapImage {
+article, #mountainImg, #mountainName, #landingPage, #mapImage, #pageFooter {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centers the article horizontally */
