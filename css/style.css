@@ -1,16 +1,33 @@
+*{
+  margin: 0 .5rem 0 .5rem;
+}
 .container {
   text-align: center;
 }
 
 nav {
-  margin: 0 10px;
+  margin: 0 1.2rem;
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the article horizontally */
+}
+
+article form,
+article footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content horizontally */
+}
 
 table {
   justify-content: center; /* Centers horizontally */
+  flex-direction: column;
   align-items: center; /* Centers vertically */
-  margin-top: .5rem;
+  margin-top: .5rem;+
+
   width: 100%;
   border-collapse: collapse;
 }

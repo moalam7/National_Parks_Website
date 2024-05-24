@@ -21,6 +21,7 @@
         <li><a href="national_parks_search_page.html">National Parks</a></li>
       </ul>
     </nav>
+    <div class="centeredDiv">
     <article>
       <form>
         <label for="mountainsList">Mountain</label>
@@ -29,14 +30,16 @@
         </select>
         <button type="button" id="detailsButton">Show Details</button>
       </form>
-      <div id="mountainDetails">
-        <h2 id="mountainName"></h2>
+      <article id="mountainDetails">
+        <header id="mountainName"></header>
         <img id="mountainImg" src="" alt="" style="display: none; max-width: 100%" />
-        <p id="mountainDesc"></p>
-        <p id="mountainCoords"></p>
-        <p id="mountainSunrise"></p>
-        <p id="mountainSunset"></p>
+        <footer>
+          <p id="mountainDesc"></p>
+          <p id="mountainCoords"></p>
+          <p id="mountainSunrise"></p>
+          <p id="mountainSunset"></p>
+        </footer>
+      </article>
       </div>
-    </article>
   </body>
 </html>
