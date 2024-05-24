@@ -73,6 +73,10 @@
               mountainSunset.textContent = `Sunset (UTC): Not available`;
             }
           });
+
+          //show mountainDetails -- the card
+          // document.querySelector('#mountainDetails').style.display = "block";
+
         }
 
         // detailsButton.onclick = showMountainDetails;

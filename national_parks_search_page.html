@@ -14,56 +14,60 @@
     <script src="scripts/nationalParks.js"></script>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><strong>National Lorem Parks</strong></li>
-      </ul>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="moutains_information.html">Mountains</a></li>
-        <li><a href="national_parks_search_page.html">National Parks</a></li>
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <ul>
+          <li><strong>National Lorem Parks</strong></li>
+        </ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="moutains_information.html">Mountains</a></li>
+          <li><a href="national_parks_search_page.html">National Parks</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <h1>National Parks</h1>
-    <div id="searchDiv">
-      <!-- Initial Filter Dropdown -->
-      <select id="filterTypeSelect" aria-label="Filter by:" required>
-        <option selected disabled value="">Filter by:</option>
-        <option value="State">State</option>
-        <option value="Type">Type</option>
-      </select>
+    <main>
+      <h1>National Parks</h1>
+      <div id="searchDiv">
+        <!-- Initial Filter Dropdown -->
+        <select id="filterTypeSelect" aria-label="Filter by:" required>
+          <option selected disabled value="">Filter by:</option>
+          <option value="State">State</option>
+          <option value="Type">Type</option>
+        </select>
 
-      <!-- Dropdown to select state/type -->
-      <select id="filterValueSelect" aria-label="Select a value" required style="display: none">
-        <option selected disabled value="">Select a value</option>
-      </select>
+        <!-- Dropdown to select state/type -->
+        <select id="filterValueSelect" aria-label="Select a value" required style="display: none">
+          <option selected disabled value="">Select a value</option>
+        </select>
 
-      <!-- Buttons to filter and clear filter -->
-      <!-- Inline style - display:none so default hidden -->
-      <div role="group">
-        <button id="filterButton" style="display: none">Filter</button>
-        <button id="clearButton" style="display: none">Clear Filter</button>
+        <!-- Buttons to filter and clear filter -->
+        <!-- Inline style - display:none so default hidden -->
+        <div role="group">
+          <button id="filterButton" style="display: none">Filter</button>
+          <button id="clearButton" style="display: none">Clear Filter</button>
+        </div>
       </div>
-    </div>
 
-    <div id="tableContainer">
-      <table id="parkTable" style="display: none">
-        <thead id="tableHeader" data-theme="light">
-          <tr>
-            <th>Location Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
-            <th>Phone</th>
-            <th>Visit</th>
-          </tr>
-        </thead>
-        <tbody id="parkTableBody"></tbody>
-      </table>
-    </div>
+      <div id="tableContainer">
+        <table id="parkTable" style="display: none">
+          <thead id="tableHeader" data-theme="light">
+            <tr>
+              <th>Location Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th>Phone</th>
+              <th>Visit</th>
+            </tr>
+          </thead>
+          <tbody id="parkTableBody"></tbody>
+        </table>
+      </div>
 
-    <div id="results"></div>
+      <div id="results"></div>
+    </main>
   </body>
 </html>
