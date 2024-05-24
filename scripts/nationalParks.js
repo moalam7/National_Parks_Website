@@ -102,7 +102,7 @@ filterButton.addEventListener("click", () => {
   }
 });
 
-// Event listener for clear filter button click
+// Event listener for clear filter button click ======================================
 clearButton.addEventListener("click", () => {
   filterTypeSelect.value = "";
   filterValueSelect.innerHTML = '<option value="">Select a value</option>';
