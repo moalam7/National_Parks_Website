@@ -28,6 +28,7 @@ filterTypeSelect.addEventListener("change", () => {
   filterValueSelect.style.display = selectedType ? "inline-block" : "none";
   filterButton.style.display = selectedType ? "inline-block" : "none";
   clearButton.style.display = selectedType ? "inline-block" : "none";
+  parkTable.style.display = selectedType ? "inline-block" : "none";
 
   //Populate the filter value dropdown depending on which option selected, options will either be the locationsArray or parkTypeArray
   let options = [];
@@ -94,13 +95,14 @@ filterButton.addEventListener("click", () => {
 });
 
 // Event listener for clear filter button click
-clearButton.addEventListener("click", function () {
+clearButton.addEventListener("click", () => {
   filterTypeSelect.value = "";
   filterValueSelect.innerHTML = '<option value="">Select a value</option>';
   filterValueSelect.style.display = "none";
   filterButton.style.display = "none";
   clearButton.style.display = "none";
   resultsDiv.innerHTML = "";
-  parkTable.style.display = "none";
+  parkTable.style.display = "none"; // Hide table on clear
+  parkTableBody.innerHTML = ""; // Clear table body
 });
 };
