@@ -58,39 +58,47 @@ filterButton.addEventListener("click", () => {
   resultsDiv.innerHTML = "";
   parkTableBody.innerHTML = ""; // Clear previous table rows
 
-  if (!selectedValue) return; //If no value then return
+  if (!selectedValue) return; //If no value then return early
+
+  //Filtering the national Parks Array based on selected filter, the type and value
   const filteredParks = nationalParksArray.filter((park) => {
-    if (selectedType === "State") {
+    if (selectedType === "State") {           //if state, check if the state matches the selectedValue
       return park.State === selectedValue;
-    } else if (selectedType === "Type") {
+    } else if (selectedType === "Type") {     //if type, same thing
+      //Allows for partial matches, if locationName contains the selected value, since Historic and certain phrases in string are not endsWith()-able
       return selectedValue && park.LocationName.includes(selectedValue);
     }
-    return false;
+    return false;   //any other case, return false
   });
 
+  //If any filtered parks, display on table
   if (filteredParks.length > 0) {
-    parkTable.style.display = "table";
+    parkTable.style.display = "table";    //display table
 
+    //Loop through each filtered park
     filteredParks.forEach((park) => {
+      //Create a new row for each park
       const row = document.createElement("tr");
+      //Define the cells in an array, so we can use forEach() and loop through without havbing to write down cell1, cell2, etc.
       const cells = ["LocationName", "Address", "City", "State", "ZipCode", "Phone", "Visit"];
+      //Loop through each cell and populate with park data
       cells.forEach((cell) => {
         const td = document.createElement("td");
-        td.textContent = park[cell] || "N/A";
-        if (cell === "Visit" && park[cell]) {
+        td.textContent = park[cell] || "N/A";     //Set the cell textContent to the park data OR(||) "N/A" if not available
+        if (cell === "Visit" && park[cell]) {     //Setting a href attribute if a website is present
           const link = document.createElement("a");
           link.href = park[cell];
-          link.textContent = "Visit";
-          link.target = "_blank";
-          td.textContent = "";
-          td.appendChild(link);
+          link.textContent = "Visit";     // Instead of showing the link of the website, "Visit" will be shown instead as a hyperlink to be clicked on
+          link.target = "_blank";         //This causes the link to open in a new tab
+          td.textContent = "";          //Clear cell before
+          td.appendChild(link);          //append link to CELL
         }
-        row.appendChild(td);
+        row.appendChild(td);            //Append CELL to ROW
       });
-      parkTableBody.appendChild(row);
+      parkTableBody.appendChild(row);   //Append ROW to TABLE
     });
   } else {
-    resultsDiv.textContent = "No parks found.";
+    resultsDiv.textContent = "No parks found."; //if parks are not found after filtering through, display this message
   }
 });
 
