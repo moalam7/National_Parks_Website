@@ -3,24 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mountains Information</title>
+    <title>Mountains</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
     <script src="scripts/mountainData.js"></script>
   </head>
   <body>
-    <header>
-      <!-- nav bar -->
-    </header>
-    <h1>Mountains</h1>
-    <h2>Select Mountains</h2>
-
     <article>
       <form>
-        <select id="mountainList">
+        <label for="mountainsList">Mountain</label>
+        <select id="mountainsList">
           <option value="">Select...</option>
         </select>
+        <button type="button" id="detailsButton">Show Details</button>
       </form>
+      <div id="mountainDetails">
+        <h2 id="mountainName"></h2>
+        <img id="mountainImg" src="" alt="" style="display: none; max-width: 100%" />
+        <p id="mountainDesc"></p>
+        <p id="mountainCoords"></p>
+      </div>
     </article>
 
-    <div id="mountainInfo"></div>
+    <script>
+      "use strict";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const mountainsList = document.querySelector("#mountainsList");
+        const mountainName = document.querySelector("#mountainName");
+        const mountainImg = document.querySelector("#mountainImg");
+        const mountainDesc = document.querySelector("#mountainDesc");
+        const mountainCoords = document.querySelector("#mountainCoords");
+        const detailsButton = document.querySelector("#detailsButton");
+
+        // function loadMountains() {
+        //   for (const mountain of mountainsArray) {
+        //     let option = document.createElement("option");
+        //     option.textContent = mountain.name;
+        //     option.value = mountain.name;
+        //     mountainsList.appendChild(option);
+        //   }
+        // }
+
+        function loadMountains() {
+          mountainsArray.forEach((mountain) => {
+            const option = document.createElement("option");
+            option.textContent = mountain.name;
+            option.value = mountain.name;
+            mountainsList.appendChild(option);
+          });
+        }
+
+        // function showMountainDetails() {
+        //   const mountainNameValue = mountainsList.value;
+        //   for (const mountain of mountainsArray) {
+        //     if (mountain.name === mountainNameValue) {
+        //       mountainName.textContent = mountain.name;
+        //       mountainImg.src = `images/${mountain.img}`;
+        //       mountainImg.alt = mountain.name;
+        //       mountainImg.style.display = "block";
+        //       mountainDesc.textContent = mountain.desc;
+        //       mountainCoords.textContent = `Coordinates: Latitude ${mountain.coords.lat}, Longitude ${mountain.coords.lng}`;
+        //     }
+        //   }
+        // }
+
+        function showMountainDetails() {
+          const selectedMountainName = mountainsList.value;
+          const selectedMountain = mountainsArray.find((mountain) => mountain.name === selectedMountainName);
+
+          if (selectedMountain) {
+            mountainName.textContent = selectedMountain.name;
+            mountainImg.src = `images/${selectedMountain.img}`;
+            mountainImg.alt = selectedMountain.name;
+            mountainImg.style.display = "block";
+            mountainDesc.textContent = selectedMountain.desc;
+            mountainCoords.textContent = `Coordinates: Latitude ${selectedMountain.coords.lat}, Longitude ${selectedMountain.coords.lng}`;
+          }
+        }
+
+        // detailsButton.onclick = showMountainDetails;
+        detailsButton.addEventListener("click", showMountainDetails);
+
+        loadMountains();
+      });
+
+      // function init() {
+      //   loadMountains();
+      // }
+
+      // window.onload = init;
+    </script>
   </body>
 </html>

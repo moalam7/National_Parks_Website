@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>National Parks Search</title>
+    <!-- Pico Stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
     <!-- Linking the JS script files, making sure the data files are loaded first so they can be used in the other JS files -->
-    <script src="scripts/nationalParkData.js"></script>
     <script src="scripts/locationData.js"></script>
     <script src="scripts/parkTypeData.js"></script>
+    <script src="scripts/nationalParkData.js"></script>
     <script src="scripts/nationalParks.js"></script>
   </head>
   <body>
@@ -35,6 +37,23 @@
         <button id="filterButton" style="display: none">Filter</button>
         <button id="clearButton" style="display: none">Clear Filter</button>
       </div>
+    </div>
+
+    <div id="tableContainer">
+      <table id="parkTable" style="display: none">
+        <thead id="tableHeader" style="display: none">
+          <tr>
+            <th>Location Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th>Phone</th>
+            <th>Visit</th>
+          </tr>
+        </thead>
+        <tbody id="parkTableBody"></tbody>
+      </table>
     </div>
 
     <div id="results"></div>

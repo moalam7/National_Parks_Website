@@ -4,7 +4,7 @@ const parkTypesArray = [
     "Recreation Area",
     "Scenic Trail",
     "Battlefield",
-    "Historic",
+    "Historical Park",
     "Memorial",
     "Preserve",
     "Island",
