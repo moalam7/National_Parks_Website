@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>National Parks Search</title>
     <!-- Pico Stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.jade.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <!-- Linking the JS script files, making sure the data files are loaded first so they can be used in the other JS files -->
     <script src="scripts/locationData.js"></script>
@@ -14,27 +14,34 @@
     <script src="scripts/nationalParks.js"></script>
   </head>
   <body>
-    <header>
-      <!-- Navbar -->
-    </header>
+    <nav>
+      <ul>
+        <li><strong>National Lorem Parks</strong></li>
+      </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="moutains_information.html">Mountains</a></li>
+        <li><a href="national_parks_search_page.html">National Parks</a></li>
+      </ul>
+    </nav>
 
     <h1>National Parks</h1>
-    <div class="searchDiv">
+    <div id="searchDiv">
       <!-- Initial Filter Dropdown -->
-      <select id="filterTypeSelect">
-        <option value="">Filter by:</option>
+      <select id="filterTypeSelect" aria-label="Filter by:" required>
+        <option selected disabled value="">Filter by:</option>
         <option value="State">State</option>
         <option value="Type">Type</option>
       </select>
 
       <!-- Dropdown to select state/type -->
-      <select id="filterValueSelect" style="display: none">
-        <option value="">Select a value</option>
+      <select id="filterValueSelect" aria-label="Select a value" required style="display: none">
+        <option selected disabled value="">Select a value</option>
       </select>
 
       <!-- Buttons to filter and clear filter -->
       <!-- Inline style - display:none so default hidden -->
-      <div class="button-container">
+      <div role="group">
         <button id="filterButton" style="display: none">Filter</button>
         <button id="clearButton" style="display: none">Clear Filter</button>
       </div>

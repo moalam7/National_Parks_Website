@@ -58,7 +58,7 @@ filterButton.addEventListener("click", () => {
   resultsDiv.innerHTML = "";
   parkTableBody.innerHTML = ""; // Clear previous table rows
 
-  if (!selectedValue) return;
+  if (!selectedValue) return; //If no value then return
   const filteredParks = nationalParksArray.filter((park) => {
     if (selectedType === "State") {
       return park.State === selectedValue;
@@ -102,7 +102,7 @@ clearButton.addEventListener("click", () => {
   filterButton.style.display = "none";
   clearButton.style.display = "none";
   resultsDiv.innerHTML = "";
-  parkTable.style.display = "none"; // Hide table on clear
-  parkTableBody.innerHTML = ""; // Clear table body
+  parkTable.style.display = "none";   // Hide table on clear
+  parkTableBody.innerHTML = "";       // Clear table body
 });
 };
